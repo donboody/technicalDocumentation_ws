@@ -1,0 +1,53 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #424242;
+}
+
+.code-div {
+    margin-left: 25px;
+}
+
+.image {
+    width: 500px;
+}
+
+.image-1 {
+    width: 600px;
+}
+
+.image-2 {
+    width: 700px;
+}
+
+header {
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+#page-header {
+    font-size: 2.5em;
+}
+
+.sub-head-l1 {
+    font-size: 1.75em;
+}
+
+.sub-head-l2 {
+    font-size: 1.5em;
+}
+
+.sub-head-l3 {
+    font-size: 1.25em;
+}
+
+a:link,
+a:visited {
+    color: #0288d1;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: blue;
+    text-decoration: underline;
+}

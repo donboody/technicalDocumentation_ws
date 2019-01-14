@@ -3,52 +3,422 @@
 <!--info source at https://flutter.io/docs/resources/technical-overview-->
 
 <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<main id="main-doc">
+<body>
 
-    <section class=".main-section" id="what_is_flutter">
-        <header>
-            What is Flutter?
-        </header>
-    </section>
+    <main id="main-doc">
+        <p id="page-header">Flutter Technical Overview</p>
 
-    <section class=".main-section" id="why_use_flutter">
-        <header>
-            Why use Flutter?
-        </header>
-    </section>
+        <section class=".main-section" id="what_is_flutter">
+            <header>
+                What is Flutter?
+            </header>
+            <p>
+                Flutter is a mobile app SDK for building high-performance, high-fidelity, apps for iOS and Android,
+                from a
+                single codebase.
+            </p>
+            <p>
+                The goal is to enable developers to deliver high-performance apps that feel natural on different
+                platforms.
+                We embrace differences in scrolling behaviors, typography, icons, and more.
+            </p>
 
-    <section class=".main-section" id="core_principles">
-        <header>
-            Core principles
-        </header>
-    </section>
+            <img class="image" src="http://i64.tinypic.com/20p30wh.png" alt="Image and video hosting by TinyPic">
 
-    <section class=".main-section" id="building_widgets">
-        <header>
-            Building widgets
-        </header>
-    </section>
+            <p>
+                This is a demo app from the <a href="https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo"
+                    target="_blank">Gallery</a>, a collection of Flutter sample apps you can run after installing
+                Flutter and setting up your environment. Shrine has high-quality scrolling images, interactive cards,
+                buttons, dropdown lists, and a shopping cart page. To look at the single codebase for this and more
+                examples, <a href="https://github.com/flutter/flutter/tree/master/examples" target="_blank">visit our
+                    GitHub repository</a>.
+            </p>
+            <p>
+                No mobile development experience is required to get started. Apps are written in Dart, which looks
+                familiar
+                if you’ve used a language like Java or JavaScript. Experience with object-oriented languages is
+                definitely
+                helpful, but even non-programmers have made Flutter apps!
+            </p>
+        </section>
 
-    <section class=".main-section" id="handling_user_interaction">
-        <header>
-            Handling user interaction
-        </header>
-    </section>
+        <section class=".main-section" id="why_use_flutter">
+            <header>
+                Why use Flutter?
+            </header>
+            <p>What are some advantages of Flutter? It helps you:</p>
+            <ul>
+                <li>Be highly productive</li>
+                <ul>
+                    <li>Develop for iOS and Android from a single codebase</li>
+                    <li>Do more with less code, even on a single OS, with a modern, expressive language and a
+                        declarative
+                        approach</li>
+                    <li>Prototype and iterate easily</li>
+                    <ul>
+                        <li>Experiment by changing code and reloading as your app runs (with hot reload)</li>
+                        <li>Fix crashes and continue debugging from where the app left off</li>
+                    </ul>
+                </ul>
+                <li>Create beautiful, highly-customized user experiences</li>
+                <ul>
+                    <li>Benefit from a rich set of Material Design and Cupertino (iOS-flavor) widgets built using
+                        Flutter’s
+                        own framework</li>
+                    <li>Realize custom, beautiful, brand-driven designs, without the limitations of OEM widget sets</li>
+                </ul>
+            </ul>
+        </section>
 
-    <section class=".main-section" id="try_it">
-        <header>
-            Try it!
-        </header>
-    </section>
+        <section class=".main-section" id="core_principles">
+            <header>
+                Core principles
+            </header>
+            <p>Flutter includes a modern react-style framework, a 2D rendering engine, ready-made widgets, and
+                development
+                tools. These components work together to help you design, build, test, and debug apps. Everything is
+                organized around a few core principles.
+            </p>
+            <p class="sub-head-l1">
+                Everything's a Widget
+            </p>
+            <p>Widgets are the basic building blocks of a Flutter app’s user interface. Each widget is an immutable
+                declaration of part of the user interface. Unlike other frameworks that separate views, view
+                controllers,
+                layouts, and other properties, Flutter has a consistent, unified object model: the widget.</p>
+            <p>A widget can define:</p>
+            <ul>
+                <li>a structural element (like a button or menu)</li>
+                <li>a stylistic element (like a font or color scheme)</li>
+                <li>an aspect of layout (like padding)</li>
+                <li>and so on…</li>
+            </ul>
+            <p>Widgets form a hierarchy based on composition. Each widget nests inside, and inherits properties from,
+                its
+                parent. There is no separate “application” object. Instead, the root widget serves this role.</p>
+            <p>You can respond to events, like user interaction, by telling the framework to replace a widget in the
+                hierarchy with another widget. The framework then compares the new and old widgets and efficiently
+                updates
+                the user interface.
+            </p>
+            <p class="sub-head-l2">
+                Composition > inheritance
+            </p>
+            <p>Widgets are themselves often composed of many small, single-purpose widgets that combine to produce
+                powerful
+                effects. For example, <a href="https://github.com/flutter/flutter/blob/master/packages/flutter/lib/src/widgets/container.dart"
+                    target="_blank">Container</a>, a commonly-used widget, is made up of several widgets responsible
+                for
+                layout, painting, positioning, and sizing. Specifically, Container is made up of <a href="https://docs.flutter.io/flutter/widgets/LimitedBox-class.html"
+                    target="_blank">LimitedBox</a>,
+                <a href="https://docs.flutter.io/flutter/widgets/ConstrainedBox-class.html" target="_blank">ConstrainedBox</a>,
+                <a href="https://docs.flutter.io/flutter/widgets/Align-class.html" target="_blank">Align</a>, <a href="https://docs.flutter.io/flutter/widgets/Padding-class.html"
+                    target="_blank">Padding</a>, <a href="https://docs.flutter.io/flutter/widgets/DecoratedBox-class.html"
+                    target="_blank">DecoratedBox</a>, and <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html"
+                    target="_blank">Transform</a> widgets. Rather than subclassing Container
+                to
+                produce a customized effect, you can compose these, and other, simple widgets in novel ways.</p>
+            <p>The class hierarchy is shallow and broad to maximize the possible number of combinations.</p>
 
-    <section class=".main-section" id="get_support">
-        <header>
-            Get support
-        </header>
-    </section>
+            <img class="image-1" src="http://i63.tinypic.com/2igbwk8.png" alt="Image and video hosting by TinyPic"></a>
 
-</main>
+            <p>You can also control the <em>layout</em> of a widget by composing it with other widgets. For example, to
+                center a
+                widget, you wrap it in a Center widget. There are widgets for padding, alignment, row, columns, and
+                grids.
+                These layout widgets do not have a visual representation of their own. Instead, their sole purpose is
+                to
+                control some aspect of another widget’s layout. To understand why a widget renders in a certain way,
+                it’s
+                often helpful to inspect the neighboring widgets.
+            </p>
+            <p class="sub-head-l2">
+                Layer cakes are delicious
+            </p>
+            <p>The Flutter framework is organized into a series of layers, with each layer building upon the previous
+                layer.</p>
+
+            <img class="image-2" src="http://i68.tinypic.com/25fk48n.png" alt="Image and video hosting by TinyPic"></a>
+
+            <p>The upper layers of the framework are used more frequently than the lower layers. For the complete set
+                of
+                libraries that make up the Flutter’s layered framework, see our <a href="https://docs.flutter.io/"
+                    target="_blank">API documentation</a>.</p>
+
+            <p>The goal of this design is to help you do more with less code. For example, the Material layer is built
+                by
+                composing basic widgets from the widgets layer, and the widgets layer itself is built by orchestrating
+                lower-level objects from the rendering layer.</p>
+
+            <p>The layers offer many options for building apps. Choose a customized approach to unlock the full
+                expressive
+                power of the framework, or use building blocks from the widgets layer, or mix and match. You can
+                compose
+                the ready-made widgets Flutter provides, or create your own custom widgets using the same tools and
+                techniques that the Flutter team used to build the framework.</p>
+
+            <p>Nothing is hidden from you. You reap the productivity benefits of a high-level, unified widget concept,
+                without sacrificing the ability to dive as deeply as you wish into the lower layers.
+            </p>
+        </section>
+
+        <section class=".main-section" id="building_widgets">
+            <header>
+                Building widgets
+            </header>
+            <p>You define the unique characteristics of a widget by implementing a <a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html"
+                    target="_blank">build</a> function that returns a tree
+                (or
+                hierarchy) of widgets. </p>
+            <p class="sub-head-l3">Build function implementation:</p>
+            <div class="code-div">
+                <code>
+                    <pre>
+@protected
+Widget build(BuildContext context);</pre>
+                </code>
+
+            </div>
+            <p>This tree represents the widget’s part of the user interface in more concrete
+                terms.
+                For example, a toolbar widget might have a build function that returns a <a href="https://docs.flutter.io/flutter/widgets/Row-class.html"
+                    target="_blank">horizontal layout</a> of some <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"
+                    target="_blank">text</a>
+                and
+                <a href="https://docs.flutter.io/flutter/material/IconButton-class.html" target="_blank">various</a> <a
+                    href="https://docs.flutter.io/flutter/material/PopupMenuButton-class.html" target="_blank">buttons</a>.</p>
+            <p class="sub-head-l3">Example:</p>
+            <div class="code-div">
+                <code>
+                    <pre>
+Widget build(BuildContext context) {
+    return Row(
+        children: <Widget>[
+        Text("The text"),
+        IconButton(
+            icon: Icon(
+            Icons.access_alarm
+            ),
+        ),
+        FlatButton(
+            child: (
+            Text("Push me")
+            ),
+        )
+        ],
+    );
+}</pre>
+                </code>
+            </div>
+            <p>The framework then recursively asks each of these widgets to build until the process
+                bottoms out in <a href="https://docs.flutter.io/flutter/widgets/RenderObjectWidget-class.html" target="_blank">fully
+                    concrete widgets</a>, which the framework then stitches together into a tree.</p>
+
+            <p>A widget’s build function should be free of side effects. Whenever it is asked to build, the widget
+                should
+                return a new tree of widgets regardless of what the widget previously returned. The framework does the
+                heavily lifting of comparing the previous build with the current build and determining what
+                modifications
+                need to be made to the user interface.</p>
+
+            <p>This automated comparison is quite effective, enabling high-performance, interactive apps. And the
+                design of
+                the build function simplifies your code by focusing on declaring what a widget is made of, rather than
+                the
+                complexities of updating the user interface from one state to another.
+            </p>
+        </section>
+
+        <section class=".main-section" id="handling_user_interaction">
+            <header>
+                Handling user interaction
+            </header>
+            <p>If the unique characteristics of a widget need to change based on user interaction or other factors,
+                that
+                widget is <em>stateful</em>. For example, if a widget has a counter that increments whenever the user
+                taps
+                a button,
+                the value of the counter is the state for that widget. When that value changes, the widget needs to be
+                rebuilt to update the UI.</p>
+            <p>
+                These widgets subclass <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html"
+                    target="_blank">StatefulWidget</a> (rather than <a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html"
+                    target="_blank">StatelessWidget</a>) and store their mutable state in a
+                subclass of <a href="https://docs.flutter.io/flutter/widgets/State-class.html" target="_blank">State</a>.
+            </p>
+
+            <img class="image" src="http://i66.tinypic.com/14ae9vs.png" alt="Image and video hosting by TinyPic">
+
+            <p class="sub-head-l3">StatefulWidget example:</p>
+            <div class="code-div">
+                <code>
+                    <pre>
+//StatefulWidget example
+class SomeStatefulWidget extends StatefulWidget {
+    const SomeStatefulWidget({ Key key }) : super(key: key);
+
+    @override
+    _SomeStatefulWidgetState createState() => _SomeStatefulWidgetState();
+  }
+
+  class _SomeStatefulWidgetState extends State&lt;SomeStatefulWidget&gt; {
+    @override
+    Widget build(BuildContext context) {
+      return Container(color: const Color(0xFFFFE306));
+    }
+  }
+                </pre>
+                </code>
+            </div>
+            <p class="sub-head-l3">StatelessWidget example:</p>
+            <div class="code-div">
+                <code>
+                    <pre>
+class SomeStatelessWidget extends StatelessWidget {
+    const SomeStatelessWidget({ Key key }) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+        return Container(color: const Color(0xFF2DBD3A));
+    }
+}</pre>
+                </code>
+
+            </div>
+
+            <p>Whenever you mutate a State object (e.g., increment the counter), you must call <a href="https://docs.flutter.io/flutter/widgets/State/setState.html"
+                    target="_blank">setState()</a> to signal the
+                framework to update the user interface by calling the State’s build method again. For an example of
+                managing state, see the <a href="https://github.com/flutter/flutter/blob/master/packages/flutter_tools/templates/app/lib/main.dart.tmpl"
+                    target="_blank">MyApp template</a> that’s created with each new Flutter project.</p>
+            <p class="sub-head-l3">MyApp template:</p>
+            <div class="code-div">
+                <code>
+                    <pre>
+//MyApp template
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State&lt;MyHomePage&gt; {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: &lt;Widget&gt;[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.display1,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}</pre>
+
+                </code>
+            </div>
+            <p>Having separate state and widget objects lets other widgets treat stateless and stateful widgets in the
+                same
+                way, without being concerned about losing state. Rather than needing to hold on to a child to preserve
+                its
+                state, the parent is free to create a new instance of the child without losing the child’s persistent
+                state. The framework does all the work of finding and reusing existing state objects when appropriate.
+
+            </p>
+        </section>
+
+        <section class=".main-section" id="try_it">
+            <header>
+                Try it!
+            </header>
+            <p>Now that you’re familiar with the basic structure and principles of the Flutter framework, along with
+                how to
+                build apps and make them interactive, you’re ready to start developing and iterating.</p>
+            <p>Next steps:</p>
+            <ol>
+                <li><a href="https://flutter.io/docs/get-started/install" target="_blank">Follow the
+                        Flutter Getting Started guide</a>.</li>
+                <li>Try <a href="https://flutter.io/docs/development/ui/layout" target="_blank">Building Layouts in
+                        Flutter</a> and <a href="https://flutter.io/docs/development/ui/interactive" target="_blank">Adding
+                        Interactivity to Your Flutter App</a>.</li>
+                <li>Follow a detailed example in <a href="https://flutter.io/docs/development/ui/widgets-intro" target="_blank">Tour
+                        of the Widget Framework</a>.</li>
+            </ol>
+        </section>
+
+        <section class=".main-section" id="get_support">
+            <header>
+                Get support
+            </header>
+            <p>Track the Flutter project and join the conversation in a variety of ways. We’re open source and would
+                love
+                to hear from you.</p>
+            <ul>
+                <li><a href="https://stackoverflow.com/tags/flutter" target="_blank">Ask HOWTO questions
+                        that can be answered with specific solutions</a></li>
+                <li><a href="https://gitter.im/flutter/flutter" target="_blank">Live chat with Flutter engineers and
+                        users</a></li>
+                <li><a href="https://groups.google.com/forum/#!forum/flutter-dev" target="_blank">Discuss Flutter, best
+                        practices, app
+                        design, and more on our mailing list</a></li>
+                <li><a href="https://github.com/flutter/flutter/issues" target="_blank">Report bugs, request features
+                        and docs</a></li>
+                <li><a href="https://twitter.com/flutterio/" target="_blank">Follow us on Twitter: @flutterio</a></li>
+            </ul>
+        </section>
+
+    </main>
+</body>
 
 </html>
