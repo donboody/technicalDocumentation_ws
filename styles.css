@@ -3,6 +3,11 @@ body {
     color: #424242;
 }
 
+h1 {
+    text-align: center;
+    font-size: 75%;
+}
+
 .code-div {
     margin-left: 25px;
 }
@@ -18,6 +23,22 @@ body {
 .image-2 {
     width: 700px;
 }
+
+#img-div {
+    max-width: 400px;
+    margin: auto;
+}
+
+img {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    align-self: center;
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 
 header {
     margin-top: 20px;
@@ -44,10 +65,67 @@ a:link,
 a:visited {
     color: #0288d1;
     text-decoration: none;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
 }
 
 a:hover,
 a:active {
     color: blue;
     text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .nav-link {
+        position: absolute;
+        left: -999em;
+    }
+}
+
+@media (min-width: 700px) {
+    .d1 {
+        background: white;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+    }
+}
+
+@media (max-width: 700px) {
+    .d1 {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .d2 {
+        margin-left: 410px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px) {
+    .d2 {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 700px) {
+    .container {
+        height: 100%;
+        display: flex;
+    }
+}
+
+@media (max-wdith: 500px) {
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 }
